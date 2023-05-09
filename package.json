@@ -1,8 +1,8 @@
 {
-  "name": "pikaso",
+  "name": "saga-pikaso",
   "version": "2.7.6",
   "description": "Seamless, Fully-typed and Fully-tested HTML5 Canvas Library",
-  "author": "Ramin Mousavi <ramin@pikaso.app> (http://github.com/raminious)",
+  "author": "Pierrick <pierrick@saga-digital.fr>",
   "license": "MIT",
   "scripts": {
     "typecheck": "tsc",
@@ -82,14 +82,10 @@
     "canvas": false,
     "jsdom": false
   },
-  "bugs": {
-    "url": "https://github.com/pikasojs/pikaso/issues"
-  },
-  "homepage": "https://pikaso.app",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git://github.com/pikasojs/pikaso.git"
+    "url": "https://github.com/pierrick-saga/pikaso"
   },
   "typings": "esm/index.all.d.ts",
   "module": "esm/index.all.js",
