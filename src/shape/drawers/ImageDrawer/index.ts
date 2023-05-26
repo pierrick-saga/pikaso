@@ -49,6 +49,15 @@ export class ImageDrawer {
     const defaultHeight = this.board.stage.height() / 2
     const defaultWidth = defaultHeight * ratio
 
+    if (!!config.height && !config.width) {
+      config.width = (config.height * imageInstance.width()) / imageInstance.height();
+    }
+
+    if (!!config.width && !config.height) {
+      config.height = (config.width * imageInstance.height()) / imageInstance.width();
+    }
+
+
     imageInstance.setAttrs({
       width: defaultWidth,
       height: defaultHeight,
