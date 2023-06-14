@@ -1,0 +1,54 @@
+import Konva from 'konva';
+import { Board } from '../../Board';
+import type { Filters, ShapeConfig, FilterFunctions, Nullable } from '../../types';
+export declare abstract class ShapeModel<T extends Konva.Group | Konva.Shape = Konva.Group | Konva.Shape, P extends Konva.ShapeConfig = Konva.ShapeConfig> {
+    node: T;
+    config: ShapeConfig;
+    protected readonly board: Board;
+    private readonly flip;
+    private readonly filter;
+    private deleted;
+    private selectable;
+    private filtersList;
+    constructor(board: Board, node: T, config?: ShapeConfig);
+    get isActive(): boolean;
+    get isDeleted(): boolean;
+    get isVisible(): any;
+    get isInvisible(): boolean;
+    get isSelectable(): boolean;
+    get group(): Nullable<string>;
+    get name(): string;
+    get filters(): Filters[];
+    abstract get type(): string;
+    set isSelectable(selectable: boolean);
+    set group(name: Nullable<string>);
+    hasGroup(): boolean;
+    flipX(): void;
+    flipY(): void;
+    select(): void;
+    deselect(): void;
+    addFilter(filter: Filters | Filters[]): void;
+    removeFilter(filter: FilterFunctions | FilterFunctions[]): void;
+    delete(): void;
+    undelete(): void;
+    destroy(): void;
+    rotate(theta: number): void;
+    x(): number;
+    y(): number;
+    width(): number;
+    height(): number;
+    scale(): import("konva/lib/types").Vector2d | undefined;
+    scaleX(): number;
+    scaleY(): number;
+    show(): import("konva/lib/Shape").Shape<import("konva/lib/Shape").ShapeConfig> | import("konva/lib/Group").Group;
+    hide(): import("konva/lib/Shape").Shape<import("konva/lib/Shape").ShapeConfig> | import("konva/lib/Group").Group;
+    update(attributes: Partial<P>): void;
+    to(attributes: Partial<P> & {
+        duration: number;
+    } & Partial<{
+        onUpdate: () => void;
+        onFinish: () => void;
+    }>): void;
+    private registerEvents;
+    private getFiltersDiff;
+}
