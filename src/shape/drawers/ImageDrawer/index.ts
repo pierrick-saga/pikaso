@@ -68,6 +68,8 @@ export class ImageDrawer {
       ...config
     })
 
+    console.warn(config);
+
     return new ImageModel(this.board, imageInstance, {
       transformer: {
         keepRatio: true

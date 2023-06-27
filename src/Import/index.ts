@@ -66,6 +66,7 @@ export class Import {
               json.attrs.url as string,
               omit(json.attrs, ['url'])
             )
+            console.log(instance)
             break
 
           case 'Label':
@@ -117,10 +118,14 @@ export class Import {
           case 'Group':
             instance = this.board.groups.find(json.attrs.name)?.container
             break
+          default:
+            console.warn('other compo')
+            break
         }
 
         if (instance) {
           instance.group = json.group
+          console.log(json.zIndex)
           instance.node.zIndex(json.zIndex ?? 0)
         }
 

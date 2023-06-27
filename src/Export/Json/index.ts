@@ -68,7 +68,9 @@ export class JsonExport {
 
     if (data.className === 'Image' && node.attrs.image) {
       // data.attrs.url = node.attrs.image.src
-      data.attrs.url = node.toDataURL();
+      data.attrs.url = node.toDataURL({
+        mimeType: '/image/png'
+      });
     }
 
     const filters = (node.filters() || []).map(filter => {
